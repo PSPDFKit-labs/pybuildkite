@@ -187,6 +187,8 @@ class Client(object):
                 query_string += "&"
             if key == "state":
                 query_string += value
+            if isinstance(value, bool):
+                query_string += key + "=" + str(value).lower()
             else:
                 query_string += key + "=" + str(value)
         return query_string
