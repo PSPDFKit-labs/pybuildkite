@@ -73,6 +73,7 @@ class Builds(Client):
         finished_from=None,
         states=[],
         meta_data=None,
+        include_retried_jobs=False,
         branch=None,
         commit=None,
         page=0,
@@ -89,6 +90,7 @@ class Builds(Client):
         :param finished_from: Filters the results by builds finished on or after the given datetime.date
         :param states: Filters the results by build states [List]
         :param meta_data: Filters the results by the given meta_data. Example: ?meta_data[some-key]=some-value
+        :param include_retried_jobs: Include all retried job executions in each build’s jobs list. Without this parameter, you'll see only the most recently run job for each step.
         :param branch: Filters the results by the given branch or branches.
         :param commit: Filters the results by the commit (only works for full sha, not for shortened ones).
         :param page: Int to determine which page to read from (See Pagination in README)
@@ -104,6 +106,7 @@ class Builds(Client):
             "created_to": created_to,
             "finished_from": finished_from,
             "state": self.__get_build_states_query_param(states),
+            "include_retried_jobs": include_retried_jobs,
             "branch": branch,
             "commit": commit,
             "page": page,
@@ -123,6 +126,7 @@ class Builds(Client):
         finished_from=None,
         states=[],
         meta_data=None,
+        include_retried_jobs=False,
         branch=None,
         commit=None,
         page=0,
@@ -139,6 +143,7 @@ class Builds(Client):
         :param finished_from: Filters the results by builds finished on or after the given datetime.date
         :param states: Filters the results by build states [List]
         :param meta_data: Filters the results by the given meta_data.
+        :param include_retried_jobs: Include all retried job executions in each build’s jobs list. Without this parameter, you'll see only the most recently run job for each step.
         :param branch: Filters the results by the given branch or branches.
         :param commit: Filters the results by the commit (only works for full sha, not for shortened ones).
         :param page: Int to determine which page to read from (See Pagination in README)
@@ -155,6 +160,7 @@ class Builds(Client):
             "created_to": created_to,
             "finished_from": finished_from,
             "state": self.__get_build_states_query_param(states),
+            "include_retried_jobs": include_retried_jobs,
             "branch": branch,
             "commit": commit,
             "page": page,
@@ -177,6 +183,7 @@ class Builds(Client):
         finished_from=None,
         states=[],
         meta_data=None,
+        include_retried_jobs=False,
         branch=None,
         commit=None,
         page=0,
@@ -194,6 +201,7 @@ class Builds(Client):
         :param finished_from: Filters the results by builds finished on or after the given datetime.date
         :param states: Filters the results by build states [List]
         :param meta_data: Filters the results by the given meta_data.
+        :param include_retried_jobs: Include all retried job executions in each build’s jobs list. Without this parameter, you'll see only the most recently run job for each step.
         :param branch: Filters the results by the given branch or branches.
         :param commit: Filters the results by the commit (only works for full sha, not for shortened ones).
         :param page: Int to determine which page to read from (See Pagination in README)
@@ -210,6 +218,7 @@ class Builds(Client):
             "created_to": created_to,
             "finished_from": finished_from,
             "state": self.__get_build_states_query_param(states),
+            "include_retried_jobs": include_retried_jobs,
             "branch": branch,
             "commit": commit,
             "page": page,
